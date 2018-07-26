@@ -8,6 +8,7 @@ EXTRACT_SUFX =	.tgz
 CATEGORIES =	math
 
 HOMEPAGE =	https://wwwlehre.dhbw-stuttgart.de/~sschulz/E/E.html
+MAINTAINER =	Your Name <you@example.com>
 
 # GPLv2+
 PERMIT_PACKAGE_CDROM =	Yes

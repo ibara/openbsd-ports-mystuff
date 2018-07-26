@@ -1,0 +1,4 @@
+bfc is a compiler for the Brainfuck programming language.
+
+bfc translates Brainfuck code into C code, then calls the C compiler to
+produce native executables.

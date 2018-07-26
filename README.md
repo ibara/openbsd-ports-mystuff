@@ -1,16 +1,21 @@
-OpenBSD ports mystuff
-=====================
-These are ports that I am either working on or are not destined for CVS.
+#OpenBSD ports mystuff
+These are ports that:
+* I am working on (my name on MAINTAINER line)
+* are not destined for CVS (no MAINTAINER line)
+* available for you to submit to ports ("Your Name" on MAINTAINER line)
 
-If you would like to submit one of these to ports@, please contact me first.
+You may submit any port with "Your Name" on the MAINTAINER line; you must
+properly fill that line out first before sending to ports@.
 
-Listing
--------
+You may not submit any port with my name on the MAINTAINER line or a port
+with no MAINTAINER line.
+##Listing
 * lang/arcadia
+* lang/bfc		(you can submit this!)
 * lang/lacc
 * lang/marst
 * lang/o
-* math/e
+* math/e		(you can submit this!)
 * math/nbc
-* sysutils/shuf
-* x11/hhpc
+* sysutils/shuf		(you can submit this!)
+* x11/hhpc		(you can submit this!)
