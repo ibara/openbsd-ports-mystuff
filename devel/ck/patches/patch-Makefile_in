@@ -1,0 +1,21 @@
+$OpenBSD$
+
+Install shared lib correctly.
+
+Index: Makefile.in
+--- Makefile.in.orig
++++ Makefile.in
+@@ -48,12 +48,7 @@ install-headers:
+ 
+ install-so:
+ 	mkdir -p $(DESTDIR)/$(LIBRARY)
+-	cp src/libck.so $(DESTDIR)/$(LIBRARY)/$(LDNAME_VERSION)
+-	ln -sf $(LDNAME_VERSION) $(DESTDIR)/$(LIBRARY)/$(LDNAME)
+-	ln -sf $(LDNAME_VERSION) $(DESTDIR)/$(LIBRARY)/$(LDNAME_MAJOR)
+-	chmod 744 $(DESTDIR)/$(LIBRARY)/$(LDNAME_VERSION)	\
+-		  $(DESTDIR)/$(LIBRARY)/$(LDNAME)		\
+-		  $(DESTDIR)/$(LIBRARY)/$(LDNAME_MAJOR)
++	install -m 644 src/libck.so.${LIBck_VERSION} $(DESTDIR)/$(LIBRARY)
+ 
+ install-lib:
+ 	mkdir -p $(DESTDIR)/$(LIBRARY)

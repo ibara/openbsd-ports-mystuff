@@ -1,0 +1,5 @@
+WeiDU is designed to make it easier to write and distribute modifications to
+Infinity Engine games, mainly those supported by games/gemrb. It can load and
+modify Infinity Engine resources according to instructions you provide. WeiDU
+is ideal for packaging modifications that include dialogue or that want to be
+compatible with other modifications.

@@ -1,0 +1,16 @@
+$OpenBSD$
+
+substitute hardcoded -O2
+
+Index: elkhound-src-2018-05-12/elkhound/perftest/test-ver
+--- elkhound-src-2018-05-12/elkhound/perftest/test-ver.orig
++++ elkhound-src-2018-05-12/elkhound/perftest/test-ver
+@@ -8,7 +8,7 @@ fi
+ cvsDate="$1"
+ directory=`echo "$cvsDate" | sed 's/ /_/g'`
+ 
+-CCFLAGS="-O2 -DNDEBUG -D__LINUX__ -D__UNIX__"
++CCFLAGS="${CFLAGS} -DNDEBUG -D__LINUX__ -D__UNIX__"
+ 
+ # stop on failure
+ set -e

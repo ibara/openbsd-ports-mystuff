@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Build shared lib correctly.
+
+Index: src/Makefile.in
+--- src/Makefile.in.orig
++++ src/Makefile.in
+@@ -21,7 +21,7 @@ OBJECTS=ck_barrier_centralized.o	\
+ all: $(ALL_LIBS)
+ 
+ libck.so: $(OBJECTS)
+-	$(LD) $(LDFLAGS) -o $(TARGET_DIR)/libck.so $(OBJECTS)
++	$(LD) $(LDFLAGS) -o $(TARGET_DIR)/libck.so.${LIBck_VERSION} $(OBJECTS)
+ 
+ libck.a: $(OBJECTS)
+ 	ar rcs $(TARGET_DIR)/libck.a $(OBJECTS)

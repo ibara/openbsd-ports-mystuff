@@ -1,0 +1,30 @@
+$OpenBSD$
+
+hardcode cc/c++
+substitute hardcoded -O3
+
+Index: elkhound-src-2018-05-12/smbase/Makefile.in
+--- elkhound-src-2018-05-12/smbase/Makefile.in.orig
++++ elkhound-src-2018-05-12/smbase/Makefile.in
+@@ -7,10 +7,10 @@ all: gensrc $(THIS)
+ 
+ 
+ # C preprocessor, compiler and linker
+-CC := @CC@
++CC := cc
+ 
+ # C++ compiler, etc.
+-CXX := @CXX@
++CXX := c++
+ 
+ # flags for the C and C++ compilers (and preprocessor)
+ CFLAGS  := @CFLAGS@
+@@ -73,7 +73,7 @@ objlist.h: xobjlist.h
+ #   add the -DDEBUG_HEAP flag to turn on my zone-based protection
+ #   add the -DTRACE_MALLOC_CALLS flag to print on every alloc/dealloc
+ #   normally -O3 is specified
+-MALLOC_CCFLAGS := -O3
++MALLOC_CCFLAGS := ${CFLAGS}
+ 
+ # By default, compile+link a stub module that does nothing, so that
+ # we will just use the normal system malloc.  Only if the user wants

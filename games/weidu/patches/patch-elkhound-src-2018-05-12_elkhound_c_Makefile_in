@@ -1,0 +1,26 @@
+$OpenBSD$
+
+g++ -> c++
+remove hardcoded -O2, replace with CFLAGS
+
+Index: elkhound-src-2018-05-12/elkhound/c/Makefile.in
+--- elkhound-src-2018-05-12/elkhound/c/Makefile.in.orig
++++ elkhound-src-2018-05-12/elkhound/c/Makefile.in
+@@ -22,7 +22,7 @@ Makefile: Makefile.in
+ 
+ # ----------------------- compiler configuration -------------------
+ # C++ preprocessor, compiler and linker
+-CXX := g++
++CXX := c++
+ 
+ # flags for the C++ compiler (and preprocessor)
+ CCFLAGS := @CCFLAGS@ -I$(SMBASE) -I$(AST) -I$(ELKHOUND)
+@@ -124,7 +124,7 @@ bcparse.y: c.gr.gen.y
+ 	    -e 's/__attribute__ ((__unused__))//' \
+ 	  <$*.tab.c.orig >$*.tab.c
+ 	rm $*.tab.c.orig
+-	$(CXX) -c -g -o $*.tab.o -O2 -DNDEBUG -Wall $(YYDEBUG) $*.tab.c
++	$(CXX) -c -g -o $*.tab.o ${CFLAGS} -DNDEBUG -Wall $(YYDEBUG) $*.tab.c
+ 
+ # C-without-typedefs parser, using Bison
+ bcparse-deps := bcparse.cc bcparse.tab.o lexer1.o lexer1yy.o lexer2.o cc_lang.o

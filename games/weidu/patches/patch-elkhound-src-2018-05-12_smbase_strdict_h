@@ -1,0 +1,18 @@
+$OpenBSD$
+
+fix error with C++11 standard, access declarations
+
+Index: elkhound-src-2018-05-12/smbase/strdict.h
+--- elkhound-src-2018-05-12/smbase/strdict.h.orig
++++ elkhound-src-2018-05-12/smbase/strdict.h
+@@ -58,8 +58,8 @@ class StringDict { (public)
+     IterC& operator= (IterC const &obj) { Iter::operator=(obj); return *this; }
+ 
+     // some operations can be made available unchanged
+-    Iter::isDone;
+-    Iter::next;
++    using Iter::isDone;
++    using Iter::next;
+ 
+     // others must be const-ified
+     string const &key() const { return Iter::key(); }

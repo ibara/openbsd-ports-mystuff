@@ -1,0 +1,8 @@
+MVDSV (MultiView Demo SerVer) is a QuakeWorld server that not only
+offers a multiplayer environment, but also allows you to record demos
+from every player's point of view as well as provide different game
+modes.
+
+While this package and the game server are open source, one still needs
+to provide the original game assets from Quake, which is not open
+source. You will need to purchase the original game to use this package.

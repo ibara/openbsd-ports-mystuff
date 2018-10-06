@@ -1,0 +1,6 @@
+@comment $OpenBSD: PLIST,v$
+@bin bin/mvdsv
+share/doc/pkg-readmes/${FULLPKGNAME}
+share/examples/mvdsv/
+share/examples/mvdsv/qwprogs.dat
+share/examples/mvdsv/server.cfg

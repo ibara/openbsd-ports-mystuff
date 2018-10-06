@@ -1,0 +1,29 @@
+$OpenBSD$
+
+fix compiler command and CCFLAGS
+
+Index: elkhound-src-2018-05-12/smbase/sm_config.pm
+--- elkhound-src-2018-05-12/smbase/sm_config.pm.orig
++++ elkhound-src-2018-05-12/smbase/sm_config.pm
+@@ -11,9 +11,9 @@ $| = 1;
+ # smbase config version number; also serves as an
+ # initialization routine
+ sub get_sm_config_version {
+-  $main::CC = getEnvOrDefault("CC", "gcc");
+-  $main::CXX = getEnvOrDefault("CXX", "g++");
+-  @main::CCFLAGS = ("-g", "-Wall", "-Wno-deprecated", "-D__UNIX__");
++  $main::CC = getEnvOrDefault("CC", "cc");
++  $main::CXX = getEnvOrDefault("CXX", "c++");
++  @main::CCFLAGS = ("${CFLAGS}", "-pipe", "-Wno-deprecated", "-D__UNIX__");
+   $main::debug = 0;
+   $main::target = 0;
+   $main::no_dash_g = 0;
+@@ -107,7 +107,7 @@ sub handleStandardOption {
+ # run after all options have been processed
+ sub finishedOptionProcessing {
+   if (!$main::debug) {
+-    push @CCFLAGS, ("-O2", "-DNDEBUG");
++    push @CCFLAGS, ("${CFLAGS}", "-DNDEBUG");
+   }
+ 
+   if (!$main::target) {

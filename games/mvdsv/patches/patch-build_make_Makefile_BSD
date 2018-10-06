@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Remove hardcoded optimization flags.
+
+Index: build/make/Makefile.BSD
+--- build/make/Makefile.BSD.orig
++++ build/make/Makefile.BSD
+@@ -22,7 +22,7 @@ DO_CFLAGS		=	${CFLAGS} -Wall -pipe -pthread -funsigned
+ WITH_OPTIMIZED_CFLAGS = YES
+ 
+ .if defined(WITH_OPTIMIZED_CFLAGS)
+-DO_CFLAGS		+=	-O2 -fno-strict-aliasing -ffast-math -funroll-loops
++DO_CFLAGS		+=	-fno-strict-aliasing -ffast-math -funroll-loops
+ . if ${MACHINE_ARCH} == "i386" && !defined(WITHOUT_X86_ASM)
+ USE_ASM=-Did386
+ DO_CFLAGS		+=	${USE_ASM}

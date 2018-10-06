@@ -1,0 +1,5 @@
+@comment $OpenBSD: PLIST,v$
+@bin bin/tolower
+@bin bin/weidu
+@bin bin/weinstall
+share/doc/pkg-readmes/${FULLPKGNAME}

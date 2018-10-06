@@ -1,0 +1,44 @@
+$OpenBSD$
+
+Override shared lib suffix.
+Detect armv7 correctly.
+Don't find gzip so manual pages are not compressed.
+
+Index: configure
+--- configure.orig
++++ configure
+@@ -38,9 +38,9 @@ VERSION=${VERSION:-'0.6.0'}
+ VERSION_MAJOR='0'
+ BUILD="$PWD/build/ck.build"
+ PREFIX=${PREFIX:-"/usr/local"}
+-LDNAME="libck.so"
+-LDNAME_VERSION="libck.so.$VERSION"
+-LDNAME_MAJOR="libck.so.$VERSION_MAJOR"
++LDNAME="libck.so.${LIBck_VERSION}"
++LDNAME_VERSION="libck.so.${LIBck_VERSION}"
++LDNAME_MAJOR="libck.so.${LIBck_VERSION}"
+ 
+ OPTION_CHECKING=1
+ 
+@@ -464,10 +464,10 @@ case $PLATFORM in
+ 		PLATFORM=ppc64
+ 		ENVIRONMENT=64
+ 		;;
+-	arm|armv6l|armv7l)
++	arm|armv6l|armv7)
+ 		if test "$PLATFORM" = "armv6l"; then
+ 			CFLAGS="$CFLAGS -march=armv6k";
+-		elif test "$PLATFORM" = "armv7l"; then
++		elif test "$PLATFORM" = "armv7"; then
+ 			CFLAGS="$CFLAGS -march=armv7-a";
+ 		fi
+ 		RTM_ENABLE="CK_MD_RTM_DISABLE"
+@@ -544,7 +544,7 @@ else
+ fi
+ 
+ printf "Finding gzip tool................"
+-GZIP=`pathsearch "${GZIP:-gzip}"`
++GZIP=nonexistent
+ if test -z "$GZIP" -o ! -x "$GZIP"; then
+ 	GZIP=`pathsearch "${GZIP:-gzip}"`
+ 	GZIP="$GZIP"

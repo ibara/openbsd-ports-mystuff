@@ -1,0 +1,6 @@
+Concurrency Kit provides concurrency primitives, safe memory reclamation
+mechanisms and non-blocking data structures for the research, design and
+implementation of high performance concurrent systems. It features
+atomic operations, hardware transactional memory, memory barriers, hash
+tables, list, ring, stack, fifo, bitmap, safe memory reclamation,
+scalable locks, execution barriers, asymmetric synchronization and more.

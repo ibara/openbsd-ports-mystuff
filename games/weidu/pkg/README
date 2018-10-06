@@ -1,0 +1,44 @@
+$OpenBSD: README.template,v 1.5 2016/08/27 09:47:26 ajacoutot Exp $
+
++-------------------------------------------------------------------------------
+| Running ${FULLPKGNAME} on OpenBSD
++-------------------------------------------------------------------------------
+
+Usage Example: Installing the Widescreen Mod for Baldur's Gate 2
+================================================================
+
+WeiDU is a tool to manage modifications for Infinity Engine games like Baldur's
+Gate, Baldur's Gate 2, Planescape: Torment, or Icewind Dale. This example shows
+how to install the widescreen mod for Baldur's Gate 2 which allows the use of
+custom resolutions, like 1366x768 or 1920x1080.
+
+1. Install gemrb port.
+
+2. Obtain the game files for Baldur's Gate 2 and set up GemRB as in the GemRB
+   documentation.
+
+3. Download the LGPL-2-licensed widescreen mod from one of the following
+   locations:
+
+   http://www.gibberlings3.net/widescreen/
+   https://github.com/Gibberlings3/widescreen
+
+4. Copy the the directory 'widescreen' containing 'widescreen.tp2' into the
+   Baldur's Gate 2 game directory.
+
+5. Enter the Baldur's Gate 2 game directory and change all filenames to lower
+   case with:
+
+   $ tolower
+
+   Do not create linux.ini on the second question.
+
+6. Apply the widescreen mod:
+
+   $ weinstall widescreen
+
+   When asked for the install component, choose: 2] for GemRB
+   Afterwards enter the size of X and Y that you want to use.
+
+7. Adjust the configuration file for GemRB to the resolution that you entered
+   in the last step.

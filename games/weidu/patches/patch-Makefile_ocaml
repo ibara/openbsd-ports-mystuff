@@ -1,0 +1,16 @@
+$OpenBSD$
+
+path for elkhound is in subdirectory
+
+Index: Makefile.ocaml
+--- Makefile.ocaml.orig
++++ Makefile.ocaml
+@@ -119,7 +119,7 @@
+ CAMLLEX = $(OCAMLDIR)/ocamllex
+ CAMLYACC= $(OCAMLDIR)/ocamlyacc
+ CAMLDEP = $(OCAMLDIR)/ocamldep
+-ELKHOUND= $(shell which $(ELKHOUND_BIN))
++ELKHOUND= elkhound-src-2018-05-12/elkhound/elkhound
+ 
+ CAMLFLAGS    =-I $(OBJDIR)
+ 

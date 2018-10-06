@@ -1,0 +1,4 @@
+@comment $OpenBSD$
+bin/ufetch
+share/doc/ufetch/
+share/doc/ufetch/LICENSE
