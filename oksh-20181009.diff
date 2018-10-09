@@ -1,0 +1,54 @@
+Index: Makefile
+===================================================================
+--- Makefile	(revision 481653)
++++ Makefile	(working copy)
+@@ -1,9 +1,9 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	oksh
+-DISTVERSION=	20180401
++DISTVERSION=	20181009
+ CATEGORIES=	shells
+-MASTER_SITES=	https://devio.us/~bcallah/oksh/
++MASTER_SITES=	https://mirrors.nycbug.org/pub/distfiles/
+ 
+ MAINTAINER=	bcallah@openbsd.org
+ COMMENT=	Portable OpenBSD Korn shell
+@@ -10,8 +10,26 @@
+ 
+ LICENSE=	PD
+ 
++OPTIONS_DEFINE=		CURSES STATIC
++OPTIONS_DEFAULT=	CURSES
++
++CURSES_DESC=	Use ncurses for screen clearing routines
++CURSES_USES=	ncurses
++
+ HAS_CONFIGURE=	yes
+ 
++.include <bsd.port.options.mk>
++
++.if ${PORT_OPTIONS:MSTATIC}
++CONFIGURE_ARGS+=	--enable-static
++.endif
++
++.if ${PORT_OPTIONS:MCURSES}
++CONFIGURE_ARGS+=	--enable-curses
++.else
++CONFIGURE_ARGS+=	--disable-curses
++.endif
++
+ do-install:
+ 	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+ 	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.1 ${STAGEDIR}${MANPREFIX}/man/man1
+Index: distinfo
+===================================================================
+--- distinfo	(revision 481653)
++++ distinfo	(working copy)
+@@ -1,3 +1,3 @@
+-TIMESTAMP = 1522955962
+-SHA256 (oksh-20180401.tar.gz) = 3001fed530602c6f6c5d9da8b6c8bf7f0c59d048fe5ed1f168ac7449b0f49914
+-SIZE (oksh-20180401.tar.gz) = 296836
++TIMESTAMP = 1539111609
++SHA256 (oksh-20181009.tar.gz) = 35dbd911ca129742e5a6cc31cd91055c2c26d895f19e9bafedf5d50b222d1197
++SIZE (oksh-20181009.tar.gz) = 301213
